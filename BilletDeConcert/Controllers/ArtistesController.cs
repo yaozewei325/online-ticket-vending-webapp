@@ -65,7 +65,7 @@ namespace BilletDeConcert.Controllers
 
         }    
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id, FullName, ProfilePictureURL,Bio")] Artiste artiste)
+        public async Task<IActionResult> Edit(int id, [Bind("Id, FullName, PhotoURL,Bio")] Artiste artiste)
         {
             if (!ModelState.IsValid)
             {
