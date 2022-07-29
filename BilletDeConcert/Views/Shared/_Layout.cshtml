@@ -26,12 +26,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Concerts" asp-action="Index"><i class="bi bi-film"></i> Concerts</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas</a>
-
-                        </li>
-
-                        <li class="nav-item">
+                                           <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Artistes" asp-action="Index"><i class="bi bi-person-square"></i> Artistes</a>
 
                         </li>
@@ -45,6 +40,22 @@
                     <ul class="navbar-nav">
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
+
+                      @*User profile section*@
+                <div class="dropdown">
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
+                            aria-expanded="false">
+                        <i class="bi bi-person-badge"></i> Yaoze
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                        <li>
+                            <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                                <i class="bi bi-list"></i> Commandes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
                 </div>
             </div>
         </nav>

@@ -3,6 +3,7 @@ using BilletDeConcert.Data.Services;
 using BilletDeConcert.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using static BilletDeConcert.Data.Services.IOrderService;
 
 namespace BilletDeConcert.Controllers
 {
@@ -10,12 +11,23 @@ namespace BilletDeConcert.Controllers
     {
         private readonly IConcertsService _concertsService;
         private readonly ShoppingCart _shoppingCart;
+        private readonly IOrderService _ordersService;
 
-        public OrdersController(IConcertsService concertsService, ShoppingCart shoppingCart)
+        public OrdersController(IConcertsService concertsService, ShoppingCart shoppingCart, IOrderService ordersService)
         {
             _concertsService = concertsService;
             _shoppingCart = shoppingCart;
+            _ordersService = ordersService;
         }
+
+        public async Task<IActionResult> Index()
+        {
+            string userId = "";
+
+            var orders = await _ordersService.GetOrdersByUserIdAsync(userId);
+            return View(orders);
+        }
+
         public IActionResult ShoppingCart()
         {
             var items = _shoppingCart.GetShoppingCartItems();
@@ -52,6 +64,17 @@ namespace BilletDeConcert.Controllers
             return RedirectToAction(nameof(ShoppingCart));
         }
 
+        public async Task<IActionResult> CompleteOrder()
+        {
+            var items = _shoppingCart.GetShoppingCartItems();
+            string userId = "";
+            string userEmailAddress = "";
 
+            await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
+            await _shoppingCart.ClearShoppingCartAsync();
+          
+
+            return View("OrderCompleted");
+        }
     }
 }

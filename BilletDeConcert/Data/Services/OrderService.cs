@@ -15,7 +15,8 @@ namespace BilletDeConcert.Data.Services
         }
 
 
-        public async Task<List<Order>> GetOrdersByUserIdAndRoleAsync(string userId, string userRole)
+      
+        public async Task<List<Order>> GetOrdersByUserIdAsync(string userId)
         {
             var orders = await _context.Orders.Include(n => n.OrderItems).ThenInclude(n => n.Concert).Where(n => n.UserId == userId).ToListAsync();
 
