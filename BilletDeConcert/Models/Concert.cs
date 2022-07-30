@@ -21,9 +21,5 @@ namespace BilletDeConcert.Models
 
         public List<Artiste_Concert> Artiste_Concerts{ get; set; }
 
-        public int CinemaId { get; set; }
-    
-
-   
     }
 }

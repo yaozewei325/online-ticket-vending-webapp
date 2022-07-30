@@ -1,4 +1,4 @@
-﻿     using BilletDeConcert.Data;
+﻿using BilletDeConcert.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace BilletDeConcert.Data.Templates
 {
+    //méthodes génériques à hériter par tous les modèles
     public class MethodsTemp<T> : IMethodsTemp<T> where T : class, IEntityTemp, new()
     {
+
         private readonly AppDbContext _context;
         public MethodsTemp(AppDbContext context)
         {

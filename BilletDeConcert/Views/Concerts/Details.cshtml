@@ -25,22 +25,22 @@
                         <p class="card-text">@Model.Description</p>
                        
                        
-                        <p class="card-text"><b>Category: </b>@Model.Genre</p>
-                        <p class="card-text"><b>Start Date: </b>@Model.StartDate.ToString("dd MMM yy")</p>
-                        <p class="card-text"><b>End Date: </b>@Model.EndDate.ToString("dd MMM yy")</p>
+                        <p class="card-text"><b>Genre: </b>@Model.Genre</p>
+                        <p class="card-text"><b>Date de début: </b>@Model.StartDate.ToString("dd MMM yy")</p>
+                        <p class="card-text"><b>Date de fin: </b>@Model.EndDate.ToString("dd MMM yy")</p>
                         <p class="card-text ">
-                            <b>Status: </b>
+                            <b>Statut: </b>
                             @if (DateTime.Now >= Model.StartDate && DateTime.Now <= Model.EndDate)
                             {
-                                <span class="badge bg-success text-white">AVAILABLE</span>
+                                <span class="badge bg-success text-white">DISPONIBLE</span>
                             }
                             else if (DateTime.Now > Model.EndDate)
                             {
-                                <span class="badge bg-danger text-white">EXPIRED</span>
+                                <span class="badge bg-danger text-white">EXPIRÉ</span>
                             }
                             else
                             {
-                                <span class="badge bg-primary text-white">UPCOMING</span>
+                                <span class="badge bg-primary text-white">À VENIR</span>
                             }
                         </p>
                         <p class="card-text">

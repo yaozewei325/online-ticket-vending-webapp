@@ -5,6 +5,7 @@ using System;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using BilletDeConcert.Data.Enum;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BilletDeConcert.Data
 {
@@ -17,7 +18,7 @@ namespace BilletDeConcert.Data
                 var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
                 context.Database.EnsureCreated();
 
-               
+                //Vérifiez d'abord si les listes sont vides, si c'est le cas, initialisez en remplissant les données de test.
                 //Artistes
                 if (!context.Artistes.Any())
                 {
@@ -27,37 +28,37 @@ namespace BilletDeConcert.Data
                         {
                             FullName = "Artiste 1",
                             Bio = "This is the Bio of the first Artiste",
-                            PhotoURL = "http://dotnethow.net/images/Artistes/Artiste-1.jpeg"
+                            PhotoURL = "https://image.shutterstock.com/image-photo/los-angeles-jan-10-jay-600w-68774434.jpg"
 
                         },
                         new Artiste()
                         {
                             FullName = "Artiste 2",
                             Bio = "This is the Bio of the second Artiste",
-                            PhotoURL = "http://dotnethow.net/images/Artistes/Artiste-2.jpeg"
+                            PhotoURL = "https://image.shutterstock.com/image-photo/los-angeles-jan-10-jay-600w-68774434.jpg"
                         },
                         new Artiste()
                         {
                             FullName = "Artiste 3",
-                            Bio = "This is the Bio of the second Artiste",
-                            PhotoURL = "http://dotnethow.net/images/Artistes/Artiste-3.jpeg"
+                            Bio = "This is the Bio of the third Artiste",
+                            PhotoURL = "https://image.shutterstock.com/image-photo/los-angeles-jan-10-jay-600w-68774434.jpg"
                         },
                         new Artiste()
                         {
                             FullName = "Artiste 4",
-                            Bio = "This is the Bio of the second Artiste",
-                            PhotoURL = "http://dotnethow.net/images/Artistes/Artiste-4.jpeg"
+                            Bio = "This is the Bio of the fourth Artiste",
+                            PhotoURL = "https://image.shutterstock.com/image-photo/los-angeles-jan-10-jay-600w-68774434.jpg"
                         },
                         new Artiste()
                         {
                             FullName = "Artiste 5",
-                            Bio = "This is the Bio of the second Artiste",
-                            PhotoURL = "http://dotnethow.net/images/Artistes/Artiste-5.jpeg"
+                            Bio = "This is the Bio of the fifth Artiste",
+                            PhotoURL = "https://image.shutterstock.com/image-photo/los-angeles-jan-10-jay-600w-68774434.jpg"
                         }
                     });
                     context.SaveChanges();
                 }
-                
+
                 //Concerts
                 if (!context.Concerts.Any())
                 {
@@ -66,67 +67,61 @@ namespace BilletDeConcert.Data
                         new Concert()
                         {
                             Nom = "COUCOU PASSE-PARTOUT, LE SPECTACLE!",
-                            Description = "This is the Life Concert description",
-                            Prix = 39.50,
-                            ImageURL = "https://www.evenko.ca/_uploads/event/37529/splash.jpg?v=1598304203",
+                            Description = "This is the first Concert description",
+                            Prix = 19.50,
+                            ImageURL = "https://image.shutterstock.com/z/stock-photo-silhouette-of-young-girl-waving-hands-to-the-music-on-popular-dj-concert-in-night-club-big-group-of-1913904964.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(10),
-                            CinemaId = 3,
                             Genre = Genre.Jazz
                         },
                         new Concert()
                         {
-                            Nom = "The Shawshank Redemption",
-                            Description = "This is the Shawshank Redemption description",
+                            Nom = "The second concert",
+                            Description = "This is the second concert description",
                             Prix = 29.50,
-                            ImageURL = "http://dotnethow.net/images/Concerts/Concert-1.jpeg",
+                            ImageURL = "https://image.shutterstock.com/z/stock-photo-silhouette-of-young-girl-waving-hands-to-the-music-on-popular-dj-concert-in-night-club-big-group-of-1913904964.jpg",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(3),
-                            CinemaId = 1,
                             Genre = Genre.Pop
                         },
                         new Concert()
                         {
-                            Nom = "Ghost",
-                            Description = "This is the Ghost Concert description",
-                            Prix = 39.50,
-                            ImageURL = "http://dotnethow.net/images/Concerts/Concert-4.jpeg",
+                            Nom = "The third concert",
+                            Description = "This is the third Concert description",
+                            Prix = 29.50,
+                            ImageURL = "https://image.shutterstock.com/z/stock-photo-silhouette-of-young-girl-waving-hands-to-the-music-on-popular-dj-concert-in-night-club-big-group-of-1913904964.jpg",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(7),
-                            CinemaId = 4,
                             Genre = Genre.Hiphop
                         },
                         new Concert()
                         {
-                            Nom = "Race",
-                            Description = "This is the Race Concert description",
+                            Nom = "The fourth concert",
+                            Description = "This is the fourth Concert description",
                             Prix = 39.50,
-                            ImageURL = "http://dotnethow.net/images/Concerts/Concert-6.jpeg",
+                            ImageURL = "https://image.shutterstock.com/z/stock-photo-silhouette-of-young-girl-waving-hands-to-the-music-on-popular-dj-concert-in-night-club-big-group-of-1913904964.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-5),
-                            CinemaId = 1,
                             Genre = Genre.ComédiesMusicales
                         },
                         new Concert()
                         {
-                            Nom = "Scoob",
-                            Description = "This is the Scoob Concert description",
+                            Nom = "The fifth concert",
+                            Description = "This is the fifth Concert description",
                             Prix = 39.50,
-                            ImageURL = "http://dotnethow.net/images/Concerts/Concert-7.jpeg",
+                            ImageURL = "https://image.shutterstock.com/z/stock-photo-silhouette-of-young-girl-waving-hands-to-the-music-on-popular-dj-concert-in-night-club-big-group-of-1913904964.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-2),
-                            CinemaId = 1,
                             Genre = Genre.Country
                         },
                         new Concert()
                         {
-                            Nom = "Cold Soles",
-                            Description = "This is the Cold Soles Concert description",
-                            Prix = 39.50,
-                            ImageURL = "http://dotnethow.net/images/Concerts/Concert-8.jpeg",
+                            Nom = "The sixth concert",
+                            Description = "This is the sixth Concert description",
+                            Prix = 29.50,
+                            ImageURL = "https://image.shutterstock.com/z/stock-photo-silhouette-of-young-girl-waving-hands-to-the-music-on-popular-dj-concert-in-night-club-big-group-of-1913904964.jpg",
                             StartDate = DateTime.Now.AddDays(3),
                             EndDate = DateTime.Now.AddDays(20),
-                            CinemaId = 1,
                             Genre = Genre.Classique
                         }
                     });

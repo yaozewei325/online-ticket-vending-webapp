@@ -26,7 +26,6 @@ namespace BilletDeConcert.Data.Services
                 Description = data.Description,
                 Prix = data.Prix,
                 ImageURL = data.ImageURL,
-                CinemaId = data.CinemaId,
                 StartDate = data.StartDate,
                 EndDate = data.EndDate,
                 Genre= data.Genre,
@@ -76,7 +75,6 @@ namespace BilletDeConcert.Data.Services
                 dbConcert.Description = data.Description;
                 dbConcert.Prix = data.Prix;
                 dbConcert.ImageURL = data.ImageURL;
-                dbConcert.CinemaId = data.CinemaId;
                 dbConcert.StartDate = data.StartDate;
                 dbConcert.EndDate = data.EndDate;
                 dbConcert.Genre = data.Genre;

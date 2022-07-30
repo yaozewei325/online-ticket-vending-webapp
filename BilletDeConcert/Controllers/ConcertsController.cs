@@ -14,9 +14,10 @@ using BilletDeConcert.Data.Services;
 
 namespace BilletDeConcert.Controllers
 {
-    //[Authorize(Roles = UserRoles.Admin)]
     public class ConcertsController : Controller
     {
+        //injecter des services de modèle séparés au lieu du contexte pour éviter un DbContext unique géant
+
         private readonly IConcertsService _service;
 
         public ConcertsController(IConcertsService service)
@@ -39,8 +40,6 @@ namespace BilletDeConcert.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 var filteredResult = allConcerts.Where(n => n.Nom.ToLower().Contains(searchString.ToLower()) || n.Description.ToLower().Contains(searchString.ToLower())).ToList();
-
-                //var filteredResultNew = allConcerts.Where(n => string.Equals(n.Nom, searchString, StringComparison.CurrentCultureIgnoreCase) || string.Equals(n.Description, searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
 
                 return View("Index", filteredResult);
             }

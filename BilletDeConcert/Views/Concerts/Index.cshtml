@@ -28,9 +28,9 @@
                     <div class="col-md-6">
                         <div class="card-body" >
                             <p class="card-text">@item.Description</p>
-                            <p class="card-text"><b>Category: </b>@item.Genre</p>
-                            <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
-                            <p class="card-text"><b>End Date: </b>@item.EndDate.ToString("dd MMM yy")</p>
+                            <p class="card-text"><b>Genre: </b>@item.Genre</p>
+                            <p class="card-text"><b>Date de début: </b>@item.StartDate.ToString("dd MMM yy")</p>
+                            <p class="card-text"><b>Date de fin: </b>@item.EndDate.ToString("dd MMM yy")</p>
                             <p class="card-text ">
                                 <b>Status: </b>
                                 @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)

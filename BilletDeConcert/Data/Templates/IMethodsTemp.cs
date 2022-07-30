@@ -1,10 +1,12 @@
-﻿ using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System;
 
 namespace BilletDeConcert.Data.Templates
 {
+    //méthodes génériques à hériter par tous les modèles
+
     public interface IMethodsTemp<T> where T : class, IEntityTemp, new()
     {
         Task<IEnumerable<T>> GetAllAsync();
@@ -16,5 +18,5 @@ namespace BilletDeConcert.Data.Templates
         Task DeleteAsync(int id);
 
     }
-    
+
 }

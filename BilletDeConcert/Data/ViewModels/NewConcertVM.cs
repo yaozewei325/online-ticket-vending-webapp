@@ -47,10 +47,6 @@ namespace BilletDeConcert.Models
         [Required(ErrorMessage = "Un ou plusieurs artistes de concert sont requis")]
         public List<int> ArtisteIds { get; set; }
 
-        [Display(Name = "Sélectionnez un cinéma")]
-        [Required(ErrorMessage = "Le cinéma de concert est obligatoire")]
-        public int CinemaId { get; set; }
-
   
     }
 }

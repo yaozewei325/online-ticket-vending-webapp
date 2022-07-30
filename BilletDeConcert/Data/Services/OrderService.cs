@@ -20,11 +20,7 @@ namespace BilletDeConcert.Data.Services
         {
             var orders = await _context.Orders.Include(n => n.OrderItems).ThenInclude(n => n.Concert).Where(n => n.UserId == userId).ToListAsync();
 
-            //if (userRole != "Admin")   
-            //{
-            //    orders = orders.Where(n => n.UserId == userId).ToList();
-            //}
-
+        
             return orders;
         }
 
